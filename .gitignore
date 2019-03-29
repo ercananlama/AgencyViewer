@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FundaAgencyViewer.Tests/obj
+/FundaAgencyViewer.Tests/bin
+/FundaAgencyViewer/obj
+/FundaAgencyViewer/bin
+/.vs

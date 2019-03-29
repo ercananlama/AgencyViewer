@@ -1,0 +1,60 @@
+﻿@model AgencyStatViewModel
+
+@{
+    ViewData["Title"] = "Agency viewer";
+}
+
+<br />
+<div>
+    <h2 class="text-center">View top agencies by city</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-sm-4">
+            <form asp-controller="Home" asp-action="Index" method="post" class="form-horizontal">
+                <div class="form-group">
+                    <label for="City">City</label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Max">Max</label>
+                    <input asp-for="Max" class="form-control" />
+                    <span asp-validation-for="Max" class="text-danger"></span>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.HasGarden) Has Garden?
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Retrieve</button>
+            </form>
+        </div>
+    </div>
+    <br />
+    @if (Model.Agencies != null)
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Agency
+                    </th>
+                    <th>
+                        Nr of houses
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var agency in Model.Agencies)
+                {
+                    <tr>
+                        <td>@agency.Agency.Name</td>
+                        <td>@agency.NrHouses</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>
